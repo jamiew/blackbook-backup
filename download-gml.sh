@@ -5,7 +5,8 @@ mkdir -p $dir
 
 # i=59
 # i=55500
-i=129
+# i=129
+i=55000
 empty_files=0
 while [ 1 ]; do
 
@@ -16,6 +17,7 @@ while [ 1 ]; do
 
   if [ -f "$outfile" ]; then
     echo "Already here, skipping"
+    empty_files=0
     continue
   fi
 
@@ -30,8 +32,9 @@ while [ 1 ]; do
   fi
 
   echo "empty_files = $empty_files"
-  if [ $empty_files -gt 10 ]; then
-    echo "More than 10 empty files, calling it a day"
+  empty_file_limit=30
+  if [ $empty_files -gt $empty_file_limit ]; then
+    echo "More than $empty_file_limit empty files, calling it a day"
     exit 0
   fi
 
