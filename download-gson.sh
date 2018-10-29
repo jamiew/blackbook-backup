@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dir="./data"
+dir="./data-json"
 mkdir -p $dir
 
 # i=59
@@ -13,7 +13,7 @@ while [ 1 ]; do
   i=$((i + 1))
   echo $i
 
-  outfile="$dir/$i.gml"
+  outfile="$dir/$i.json"
 
   if [ -f "$outfile" ]; then
     echo "Already here, skipping"
@@ -21,7 +21,8 @@ while [ 1 ]; do
     continue
   fi
 
-  wget "http://000000book.com/data/$i.gml" -O "$outfile" && empty_files=0
+  wget "http://000000book.com/data/$i.json" -O "$outfile" && empty_files=0
+  # wget "http://000000book.com/data/$i.json" -O "$outfile"
 
   if [ ! -s "$outfile" ] ; then
     echo "$outfile is empty, deleting..."
