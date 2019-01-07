@@ -6,8 +6,9 @@ mkdir -p $dir
 # i=59
 # i=55500
 # i=129
-i=56300
+i=56500
 empty_files=0
+empty_file_limit=10
 while [ 1 ]; do
 
   i=$((i + 1))
@@ -31,7 +32,6 @@ while [ 1 ]; do
   fi
 
   echo "empty_files = $empty_files"
-  empty_file_limit=30
   if [ $empty_files -gt $empty_file_limit ]; then
     echo "More than $empty_file_limit empty files, calling it a day"
     exit 0
