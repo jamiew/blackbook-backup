@@ -1,4 +1,6 @@
+*.sql
 .DS_Store
 data/
 data-json/
 ipfs-hashes
+public/
