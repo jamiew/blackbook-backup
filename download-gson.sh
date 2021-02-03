@@ -3,9 +3,7 @@
 dir="./data-json"
 mkdir -p $dir
 
-# i=59
-# i=55500
-# i=129
+#i=59
 i=56500
 empty_files=0
 empty_file_limit=10
